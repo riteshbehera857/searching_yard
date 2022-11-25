@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Rating } from "@mui/material";
+import { useRouter } from "next/router";
 
 export interface Products {
   product: {
@@ -16,6 +17,7 @@ export interface Products {
 }
 
 const ProductCard = ({ product, isLoading }: Products) => {
+  const router = useRouter();
   return (
     <>
       {isLoading ? (
@@ -42,7 +44,10 @@ const ProductCard = ({ product, isLoading }: Products) => {
           </div>
         </>
       ) : (
-        <div className="col-1/2 xs:col-span-2 cursor-pointer relative xs:block rounded-lg overflow-hidden bg-[#fff]">
+        <div
+          onClick={() => router.push(`/${product?._id}`)}
+          className="col-1/2 xs:col-span-2 cursor-pointer relative xs:block rounded-lg overflow-hidden bg-[#fff]"
+        >
           <Image
             src={product?.thumbnail}
             alt={product?.description}
