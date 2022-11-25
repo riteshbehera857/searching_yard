@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "nodemon src/server.ts",
     "build": "rimraf ./build && tsc",
-    "start": "yarn build && node build/index.js NODE_ENV=production",
+    "start": "yarn build && node build/server.js NODE_ENV=production",
     "debug": "ndb server.ts"
   },
   "dependencies": {
