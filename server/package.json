@@ -1,11 +1,12 @@
 {
-  "name": "life-in-public",
+  "name": "searching_yard",
   "version": "1.0.0",
-  "description": "This is a social media app",
+  "description": "This is a task",
   "main": "index.ts",
-  "author": "riteshk_behera",
+  "author": "ritesh kumar behera",
   "license": "MIT",
   "private": false,
+  "type": "module",
   "scripts": {
     "dev": "nodemon src/server.ts",
     "start": "node src/server.ts NODE_ENV=production",
