@@ -9,10 +9,12 @@ const Product = () => {
   const router = useRouter();
   const [product, setProduct] = useState<any>({});
   const { id } = router.query;
-  const FETCH_PRODUCT = `${process.env.NEXT_PUBLIC_BASE_URL}/products/${id}`;
+  const FETCH_PRODUCT =
+    id && `${process.env.NEXT_PUBLIC_BASE_URL}/products?id=${id}`;
 
   const fetchProduct = (URL: string) => {
-    axios.get(URL).then((res) => setProduct(res?.data?.data?.product));
+    id &&
+      axios.get(URL).then((res) => setProduct(res?.data?.data?.products[0]));
   };
   useSWR(FETCH_PRODUCT, fetchProduct);
   return (
